@@ -73,17 +73,49 @@ namespace OOP_Registration_from
         public void InsertRegistration(Registration reg)
         {
             OpenDB();
-            string sql = "INSERT INTO tblregister (regid,firstname," + "lastname,address,contactno) " +
-                "VALUES('" + reg.regid + " '," +
-                " ' " + reg.firstname + " '," +
-                " ' " + reg.lastname + " ', " +
-                " ' " + reg.address + " ', " +
-                " ' " + reg.contactno + " ')";
+            string sql = "INSERT INTO tblregister (regid,firstname," + "lastname,address,contactno)" +
+                            "VALUES( ' " + reg.regid + " '," +
+                            " ' " + reg.firstname + " ', " +
+                            " ' " + reg.lastname + " ', " +
+                            " ' " + reg.address + " ', " +
+                            " ' " + reg.contactno + " ' )";
             command = new MySqlCommand(sql, connection);
             command.ExecuteNonQuery();
             CloseDB();
 
 
+        }
+        public void DeletingRegistration(string regid)
+        {
+            OpenDB();
+            string sql = "DELETE FROM tblregister WHERE regid ='" + regid + "'";
+            command = new MySqlCommand(sql, connection);
+
+            command.ExecuteNonQuery();
+            CloseDB();
+        }
+        public void UpdateRegistration(Registration reg)
+        {
+            try
+            {
+
+                OpenDB();
+                string sql = " UPDATE tblregister SET " +
+                    "firstname='" + reg.firstname + "'," +
+                    "lastname='" + reg.lastname + "'," +
+                    "address='" + reg.address + "'," +
+                    "contactno='" + reg.contactno + "' " +
+                    "WHERE regid='" + reg.regid + "'";
+                command = new MySqlCommand();
+                command.CommandText = sql;
+                command.Connection = connection;
+                command.ExecuteNonQuery();
+                CloseDB();
+            }
+            catch (MySqlException e)
+            {
+                MessageBox.Show(e.Message);
+            }
         }
     }
 }

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OOP-Registration from", "OOP-Registration from.csproj", "{7A03937F-178D-456D-9CCC-53E16585EE4E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OOP-Registration form", "OOP-Registration form.csproj", "{7A03937F-178D-456D-9CCC-53E16585EE4E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
